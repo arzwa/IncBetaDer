@@ -1,0 +1,8 @@
+name = "IncBetaDer"
+uuid = "7d8a4f6e-0a6c-4994-abbf-d6fdb9a217b1"
+authors = ["arzwa <arzwa@psb.vib-ugent.be>"]
+version = "0.1.0"
+
+[deps]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"

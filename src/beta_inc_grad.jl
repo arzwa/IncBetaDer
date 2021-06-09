@@ -111,6 +111,12 @@ the convergence threshold.
 function beta_inc_grad(a, b, x, maxapp=maxappx, minapp=minappx, ϵ=err)
     # Here I use `a` and `b` in the args for consistency with `beta_inc` 
     # However in the function body a ≡ p and b ≡ q.
+    # x == 1 or 0 cases
+    if x == one(x)
+        return one(x), zero(x), zero(x), zero(x)
+    elseif x == zero(x)
+        return zero(x), zero(x), zero(x), zero(x)
+    end
     dx = x^(a - 1.) * (1. - x)^(b - 1.) / beta(a,b)  # partial derivative with respect to x
     # swap tails if necessary
     if x <= a / (a + b)
@@ -165,6 +171,7 @@ function beta_inc_grad(a, b, x, maxapp=maxappx, minapp=minappx, ϵ=err)
         Ixpqn = K * Cn 
 
         # check convergence
+        #@info "" K f dan dbn dAn_dq dBn_dq An Bn
         (abs(Ixpqn - Ixpq) < ϵ && n >= minapp) && break
 
         # update
